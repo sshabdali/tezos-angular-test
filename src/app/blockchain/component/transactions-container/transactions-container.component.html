@@ -1,0 +1,4 @@
+<h2>Transactions</h2>
+
+<transactions-table [transactions]="transactions$ | async" (loadMore)="loadTransactions($event)">
+</transactions-table>

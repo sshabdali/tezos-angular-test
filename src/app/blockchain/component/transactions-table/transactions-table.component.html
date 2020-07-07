@@ -1,0 +1,24 @@
+<div>{{transactions.length}} transactions</div>
+
+<cdk-virtual-scroll-viewport itemSize="35" (scrolledIndexChange)="onIndexChange($event)">
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *cdkVirtualFor="let item of transactions; let i = index; trackBy: trackByIdx">
+                <td>
+                    <span class="badge">{{ item.row_id }}</span>
+                </td>
+                <td>{{ item.volume | currency:'USD ':'code' }}</td>
+                <td>{{ item.time | date:'MMM dd yyyy, HH:mm' }}</td>
+                <td>{{ item.sender | trim }}</td>
+            </tr>
+        </tbody>
+    </table>
+</cdk-virtual-scroll-viewport>

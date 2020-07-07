@@ -1,0 +1,26 @@
+cdk-virtual-scroll-viewport {
+    height: 365px;
+    border: 1px solid black;
+  }
+  
+  .container {
+    width: 80%;
+    margin-left: 10px;
+    border: 1px solid gray;
+  }
+  
+  td, th {
+    border: none;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr, td {
+    border: none;
+  }
+  
+  .badge {
+    background-color: #99ffff;
+    padding: 5px;
+    border-radius: 12px;
+  }
