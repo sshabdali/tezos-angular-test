@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { AppState } from '../../../app-reducer';
-import { Transaction } from "../../model/transaction";
+import { Transaction } from '../../model/transaction';
 import { loadTransactions } from '../../state/actions';
 import { getTransactions, getErrorMessage } from '../../state/selectors';
 import { tap } from 'rxjs/operators';
@@ -23,7 +23,7 @@ export class TransactionsContainerComponent implements OnInit {
         this.transactions$ = this.store.pipe(select(getTransactions));
         this.errorMessage$ = this.store.pipe(select(getErrorMessage));
 
-        this.loadTransactions(null)
+        this.loadTransactions(null);
     }
 
     loadTransactions(batchId: number) {

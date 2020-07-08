@@ -12,7 +12,7 @@ import { Transaction } from '../model/transaction';
 describe('transactions effects', () => {
     let effects: TransactionsEffects;
     let actions$: Observable<any>;
-    let dataService = jasmine.createSpyObj('DataService', ['fetchTransactions'])
+    let dataService = jasmine.createSpyObj('DataService', ['fetchTransactions']);
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -23,8 +23,8 @@ describe('transactions effects', () => {
             ]
         });
 
-        effects = TestBed.get(TransactionsEffects);
-        actions$ = TestBed.get(Actions);
+        effects = TestBed.inject(TransactionsEffects);
+        actions$ = TestBed.inject(Actions);
     });
 
     describe('loadTransactions$', () => {
@@ -35,8 +35,8 @@ describe('transactions effects', () => {
                 {
                     row_id: 14849341,
                     time: 1567721704000,
-                    type: "transaction",
-                    sender: "tz1bDXD6nNSrebqmAnnKKwnX1QdePSMCj4MX",
+                    type: 'transaction',
+                    sender: 'tz1bDXD6nNSrebqmAnnKKwnX1QdePSMCj4MX',
                     volume: 8001
                 }
             ] as Transaction[];
@@ -46,7 +46,7 @@ describe('transactions effects', () => {
             const response$ = cold('-a|', { a: transactions });
             const expected$ = cold('--b', { b: completion });
 
-            dataService = TestBed.get(DataService);
+            dataService = TestBed.inject(DataService);
             dataService.fetchTransactions.and.returnValue(response$);
 
             effects.loadTransactions$.subscribe(() => {
@@ -65,7 +65,7 @@ describe('transactions effects', () => {
             const error$ = cold('-#', {}, error);
             const expected$ = cold('--b', { b: completion });
 
-            dataService = TestBed.get(DataService);
+            dataService = TestBed.inject(DataService);
             dataService.fetchTransactions.and.returnValue(error$);
 
             effects.loadTransactions$.subscribe(() => {

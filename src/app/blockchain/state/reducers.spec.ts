@@ -2,16 +2,16 @@ import { reducer, initialTransactionsState } from '../state/reducers';
 import { TransactionActions } from './action-types';
 import { Transaction } from '../model/transaction';
 
-describe("transaction reducers", () => {
+describe('transaction reducers', () => {
 
-    it("should handle loadTransactionsSuccess action and add transactions to store", () => {
+    it('should handle loadTransactionsSuccess action and add transactions to store', () => {
 
         const transactions = [
             {
                 row_id: 14849341,
                 time: 1567721704000,
-                type: "transaction",
-                sender: "tz1bDXD6nNSrebqmAnnKKwnX1QdePSMCj4MX",
+                type: 'transaction',
+                sender: 'tz1bDXD6nNSrebqmAnnKKwnX1QdePSMCj4MX',
                 volume: 8001
             }
         ] as Transaction[];
@@ -21,7 +21,7 @@ describe("transaction reducers", () => {
         expect(result.transactions).toEqual(transactions);
     });
 
-    it("should handle loadTransactionsFailure action and update error to store", () => {
+    it('should handle loadTransactionsFailure action and update error to store', () => {
 
         const msg = 'server error occurred';
 
@@ -29,4 +29,4 @@ describe("transaction reducers", () => {
         const result = reducer(initialTransactionsState, action);
         expect(result.error).toEqual(msg);
     });
-})
+});

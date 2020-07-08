@@ -13,8 +13,8 @@ describe('DataService', () => {
         [
             14849341,
             1567721704000,
-            "transaction",
-            "tz1bDXD6nNSrebqmAnnKKwnX1QdePSMCj4MX",
+            'transaction',
+            'tz1bDXD6nNSrebqmAnnKKwnX1QdePSMCj4MX',
             8001
         ]
     ];
@@ -25,8 +25,8 @@ describe('DataService', () => {
             providers: [DataService]
         });
 
-        backend = TestBed.get(HttpTestingController);
-        dataService = TestBed.get(DataService);
+        backend = TestBed.inject(HttpTestingController);
+        dataService = TestBed.inject(DataService);
     });
 
     afterEach(() => {
@@ -34,7 +34,7 @@ describe('DataService', () => {
     });
 
     it('should fetch data from the server for the FIRST batch', (done) => {
-        const batchId = null
+        const batchId = null;
 
         dataService
             .fetchTransactions(batchId)
@@ -45,7 +45,8 @@ describe('DataService', () => {
 
         const req = backend.expectOne((http: HttpRequest<any>) => {
             return (
-                http.urlWithParams === `https://api.tzstats.com/tables/op?columns=row_id,time,type,sender,volume&receiver=tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo&type=transaction&limit=10&order=desc`
+                http.urlWithParams === 'https://api.tzstats.com/tables/op?columns=row_id,time,type,sender,volume&receiver=' +
+                `tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo&type=transaction&limit=10&order=desc`
                 &&
                 http.method === 'GET'
             );
@@ -55,7 +56,7 @@ describe('DataService', () => {
     });
 
     it('should fetch data from the server for the NEXT batch', (done) => {
-        const batchId = 14849000
+        const batchId = 14849000;
 
         dataService
             .fetchTransactions(batchId)
@@ -66,7 +67,8 @@ describe('DataService', () => {
 
         const req = backend.expectOne((http: HttpRequest<any>) => {
             return (
-                http.urlWithParams === `https://api.tzstats.com/tables/op?columns=row_id,time,type,sender,volume&receiver=tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo&type=transaction&limit=10&order=desc&cursor.lte=${batchId}`
+                http.urlWithParams === 'https://api.tzstats.com/tables/op?columns=row_id,time,type,sender,volume&receiver=' +
+                `tz1gfArv665EUkSg2ojMBzcbfwuPxAvqPvjo&type=transaction&limit=10&order=desc&cursor.lte=${batchId}`
                 &&
                 http.method === 'GET'
             );

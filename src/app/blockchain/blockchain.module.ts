@@ -17,7 +17,7 @@ import { MaterialModule } from '../material.module';
         CommonModule,
         BlockchainRoutingModule,
         EffectsModule.forFeature([TransactionsEffects]),
-        StoreModule.forFeature("blockchain", reducer),
+        StoreModule.forFeature('blockchain', reducer),
         MaterialModule,
     ],
     declarations: [

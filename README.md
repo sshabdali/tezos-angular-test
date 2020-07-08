@@ -1,27 +1,26 @@
-# TezosAngularTest
+# Tezos Angular Test (by Shafaat Hussain)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.11.
 
-## Development server
+## Running UI - dev
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server and load the UI in `http://localhost:4200/`
 
-## Code scaffolding
+## Running unit tests - dev
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `npm test` to execute the unit tests in Chrome browser in watch mode.
+
+## Running end-to-end tests - dev
+
+Run `npm start` to start the dev server then `npm run e2e` to execute the end-to-end tests via cypress in Chrome browser.
+
+## Running unit tests coverage
+
+Run `npm run coverage` to execute the unit tests in headless mode with code coverage report.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

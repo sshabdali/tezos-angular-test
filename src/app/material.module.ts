@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { MatIconModule } from "@angular/material/icon";
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -12,14 +12,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         MatToolbarModule,
         MatCardModule,
         ScrollingModule,
-        FlexLayoutModule 
+        FlexLayoutModule
     ],
     exports: [
         MatIconModule,
         MatToolbarModule,
         MatCardModule,
         ScrollingModule,
-        FlexLayoutModule 
+        FlexLayoutModule
     ]
 })
 export class MaterialModule { }

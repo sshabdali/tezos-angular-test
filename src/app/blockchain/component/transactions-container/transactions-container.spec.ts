@@ -11,15 +11,15 @@ const mockTransactions = [
     {
         row_id: 14849341,
         time: 1567721704000,
-        type: "transaction",
-        sender: "tz1bDXD6nNSrebqmAnnKKwnX1QdePSMCj4MX",
+        type: 'transaction',
+        sender: 'tz1bDXD6nNSrebqmAnnKKwnX1QdePSMCj4MX',
         volume: 8001
     },
     {
         row_id: 16583041,
         time: 1571396056000,
-        type: "transaction",
-        sender: "tz1bDXD6nNSrebqmAnnKKwnX1QdePSMCj4MX",
+        type: 'transaction',
+        sender: 'tz1bDXD6nNSrebqmAnnKKwnX1QdePSMCj4MX',
         volume: 442.000000
     }
 ] as Transaction[];
@@ -27,7 +27,7 @@ const mockTransactions = [
 describe('TransactionsContainerComponent', () => {
     let component: TransactionsContainerComponent;
     let fixture: ComponentFixture<TransactionsContainerComponent>;
-    let mockStore: MockStore
+    let mockStore: MockStore;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -41,7 +41,7 @@ describe('TransactionsContainerComponent', () => {
         fixture = TestBed.createComponent(TransactionsContainerComponent);
         component = fixture.componentInstance;
 
-        mockStore = TestBed.get(MockStore);
+        mockStore = TestBed.inject(MockStore);
         mockStore.overrideSelector(getTransactions, mockTransactions);
         spyOn(mockStore, 'dispatch');
 
@@ -49,18 +49,18 @@ describe('TransactionsContainerComponent', () => {
     });
 
     it('should load transactions for the first time', (done) => {
-        const batchId = null
-        const action = TransactionActions.loadTransactions({ batchId })
+        const batchId = null;
+        const action = TransactionActions.loadTransactions({ batchId });
         expect(mockStore.dispatch).toHaveBeenCalledWith(action);
 
         component.transactions$.subscribe(data => {
             expect(data).toBe(mockTransactions);
             done();
-        })
+        });
     });
 
     it('should load the next batch of transactions', () => {
-        const batchId = 111
+        const batchId = 111;
 
         // component.loadTransactions(batchId)
         // OR
@@ -68,21 +68,21 @@ describe('TransactionsContainerComponent', () => {
             .query(By.directive(FakeTransactionsTableComponent))
             .injector.get(FakeTransactionsTableComponent);
 
-        fakeComponent.loadMore.emit(batchId)
+        fakeComponent.loadMore.emit(batchId);
 
-        const expectedAction = TransactionActions.loadTransactions({ batchId })
+        const expectedAction = TransactionActions.loadTransactions({ batchId });
         expect(mockStore.dispatch).toHaveBeenCalledWith(expectedAction);
     });
 });
 
-//------------------Fake child component for shallow testing---------------------
+// ------------------Fake child component for shallow testing---------------------
 
 @Component({
     selector: 'transactions-table',
     template: '<div></div>',
 })
 class FakeTransactionsTableComponent {
-    @Input() transactions: Transaction[]
+    @Input() transactions: Transaction[];
     @Output() loadMore = new EventEmitter<number>();
 }
 
