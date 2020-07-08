@@ -1,11 +1,12 @@
-import { Component, ViewChild, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewChild, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { Transaction } from '../../model/transaction';
 
 @Component({
     selector: 'transactions-table',
     templateUrl: './transactions-table.component.html',
-    styleUrls: ['./transactions-table.component.scss']
+    styleUrls: ['./transactions-table.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TransactionsTableComponent {
     @Input() transactions: Transaction[];
