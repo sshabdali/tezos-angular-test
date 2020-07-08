@@ -1,26 +1,39 @@
 cdk-virtual-scroll-viewport {
-    height: 365px;
-    border: 1px solid black;
-  }
-  
-  .container {
-    width: 80%;
-    margin-left: 10px;
-    border: 1px solid gray;
-  }
-  
-  td, th {
-    border: none;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr, td {
-    border: none;
-  }
-  
-  .badge {
-    background-color: #99ffff;
-    padding: 5px;
-    border-radius: 12px;
-  }
+	height: 360px;
+}
+
+.container {
+	width: 75%;
+	padding: 30px;
+	margin-left: 20px;
+}
+
+.header {
+	margin-bottom: 10px;
+	.label-icon {
+		margin-right: 5px;
+	}
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	th,
+	td {
+		text-align: left;
+		padding: 12px;
+		font-size: 10pt;
+	}
+	th {
+		background-color: #E8E8E8;
+		color: #909090;
+		font-size: 10pt;
+		font-weight: 400;
+		margin: 0;
+    }
+    .badge {
+        background-color: #99ffff;
+        padding: 5px;
+        border-radius: 12px;
+    }    
+}

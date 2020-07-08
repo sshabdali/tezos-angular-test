@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { By } from '@angular/platform-browser';
+import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
 import { TransactionsTableComponent } from './transactions-table.component';
 import { Transaction } from '../../model/transaction';
 import { ListRange } from '@angular/cdk/collections';
@@ -30,7 +31,7 @@ describe('TransactionsTableComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [TransactionsTableComponent, Trim],
-            imports: [ScrollingModule]
+            imports: [ScrollingModule, MatIconModule, MatCardModule]
         }).compileComponents();
     }));
 
